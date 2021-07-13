@@ -48,6 +48,7 @@ class Model_pasien extends CI_Model
             $data['error_string'][] = 'Status BPJS Pasien Wajib diisi.';
             $data['status'] = FALSE;
         }
+
         if($data['status'] === FALSE)
         {
             echo json_encode($data);
@@ -127,7 +128,7 @@ class Model_pasien extends CI_Model
     {
         $query = $this->mydb1->query("SELECT MAX(id_pasien) as idpasien from tb_pasien");
         $hasil = $query->row();
-        return $hasil->kodebarang;
+        return $hasil->idpasien;
 
     }
 

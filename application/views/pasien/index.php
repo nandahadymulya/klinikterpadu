@@ -106,12 +106,12 @@
 		});
 	});
 
-	function edit_data(kode_barang)
+	function edit_data(id_pasien)
 	{
 		$.ajax({
 			url: '<?php echo base_url('pasien/edit'); ?>',
 			method: 'post',
-			data: {kode_barang:kode_barang},
+			data: {id_pasien:id_pasien},
 			success:function(data){
 				$('#modalForm').modal("show");
 				$('#tampil_modal').html(data);
@@ -120,12 +120,12 @@
 		});
 	}
 
-	function delete_data(kode_barang)
+	function delete_data(id_pasien)
 	{
 		$.ajax({
 			url: "<?php echo site_url('pasien/delete')?>",
 			type: "POST",
-			data: {"kode_barang":kode_barang},
+			data: {"id_pasien":id_pasien},
 			dataType:"JSON",
 			error: function() {
 				alert('Terjadi Kesalahan, silahkan ulangi kembali');

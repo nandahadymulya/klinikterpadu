@@ -27,12 +27,12 @@
         <div class="form-group p-md-2">
             <label class="control-label col-md-12">Jenis Rawat Pasien</label>
             <div class="col-md-12">
-                <!-- <select name="jenis_rawat" id="jenis_rawat" class="form-control">Pilih
-                    <option value="Inap">Rawat Inap</option>
-                    <option value="Jalan">Rawat Jalan</option>
-                </select> -->
+                <select name="jenis_rawat" id="jenis_rawat" class="form-control">Pilih
+                    <option value="Rawat Inap">Rawat Inap</option>
+                    <option value="Rawat Jalan">Rawat Jalan</option>
+                </select>
                 
-                <input name="jenis_rawat" id="jenis_rawat" placeholder="Isi Jenis Rawat Pasien ..." class="form-control" type="text">
+                <!-- <input name="jenis_rawat" id="jenis_rawat" placeholder="Isi Jenis Rawat Pasien ..." class="form-control" type="text"> -->
                 <span class="help-block"></span>
             </div>
         </div>
@@ -40,11 +40,12 @@
         <div class="form-group p-md-2">
             <label class="control-label col-md-12">Status BPJS Pasien</label>
             <div class="col-md-12">
-                 <!-- <select name="status_bpjs" id="status_bpjs" class="form-control">Pilih
-                    <option value="1">Pasien BPJS</option>
-                    <option value="0">Pasein Non BPJS</option>
-                </select> -->
-                <input name="status_bpjs" id="status_bpjs" placeholder="Isi Status BPJS Pasien ..." class="form-control" type="text">
+                <select name="status_bpjs" id="status_bpjs" class="form-control">Pilih
+                    <option value="BPJS">Pasien BPJS</option>
+                    <option value="Non BPJS">Pasien Non BPJS</option>
+                </select>
+
+                <!-- <input name="status_bpjs" id="status_bpjs" placeholder="Isi Status BPJS Pasien ..." class="form-control" type="text"> -->
                 <span class="help-block"></span>
             </div>
         </div>

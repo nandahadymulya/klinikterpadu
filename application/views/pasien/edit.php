@@ -1,5 +1,5 @@
 <form action="#" id="form" class="form-horizontal">
-	<input type="hidden" name="kode_barang" value="<?php echo $detail->kode_barang; ?>">
+	<input type="hidden" name="id_pasien" value="<?php echo $detail->id_pasien; ?>">
     <div class="form-body">
         <div class="form-group">
             <label class="control-label col-md-12">Nama Barang</label>
@@ -12,10 +12,11 @@
         <div class="form-group">
             <label class="control-label col-md-12">Satuan Barang</label>
             <div class="col-md-12">
-                <input name="satuan_barang" id="satuan_barang" placeholder="Isi Satuan Barang ..." class="form-control" type="text" value="<?php echo $detail->satuan; ?>">
+                <input name="satuan_barang" id="satuan_barang" placeholder="Isi Satuan Barang ..." class="form-control" type="text" value="<?php echo $detail->alamat; ?>">
                 <span class="help-block"></span>
             </div>
         </div>
+        
         <hr/>
         <button type="button" class="btn btn-primary" name="btnSave" id="btnSave" onclick="update()" >Simpan</button>
     </div>
@@ -33,7 +34,7 @@
         $('#btnSave').attr('disabled',true);
         var data = $('#form').serialize();
         $.ajax({
-            url: "<?php echo site_url('barang/update')?>",
+            url: "<?php echo site_url('pasien/update')?>",
             type: "POST",
             data: data,
             dataType:"JSON",
