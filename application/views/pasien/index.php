@@ -1,10 +1,10 @@
 <div class="main pt-4">
 	<h5 class="display-6"><?php echo $pageheader; ?></h5>
-	<p>Halaman ini memuat semua data barang.</p>
+	<p>Halaman ini memuat semua data <?= $pageheader; ?>.</p>
 
 	<div class="page-header">
 		<button type="button" name="add" id="add-form" data-toggle="modal" data-target="#modalForm" class="add btn btn-success">
-			<i class="fa fa-plus"></i>Tambah Master Barang
+			<i class="fa fa-plus"></i>Tambah Data <?= $pageheader ?>
 		</button>
 	</div>
 	<hr/>
@@ -13,9 +13,12 @@
 		<thead>
 			<tr>
 				<th>No</th>
-				<th>Kode</th>
+				<th>ID Pasien</th>
 				<th>Nama</th>
-				<th>Satuan</th>
+				<th>Alamat</th>
+				<th>Penyakit</th>
+				<th>Jenis Rawat</th>
+				<th>Status BPJS</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -23,9 +26,12 @@
 		<tfoot>
 			<tr>
 				<th width="2%">No</th>
-				<th>Kode</th>
+				<th>ID Pasien</th>
 				<th>Nama</th>
-				<th>Satuan</th>
+				<th>Alamat</th>
+				<th>Penyakit</th>
+				<th>Jenis Rawat</th>
+				<th>Status BPJS</th>
 				<th>Action</th>
 			</tr>
 		</tfoot>
@@ -69,7 +75,7 @@
 				"order": [],  
 				// Load data for the table's content from an Ajax source
 				"ajax": {
-					"url": "<?php echo site_url('barang/ajax') ?>",
+					"url": "<?php echo site_url('pasien/ajax') ?>",
 					"type": "POST",
 					"data": function(data) {
 						null
@@ -86,7 +92,7 @@
 	$('.add').click(function() {
 		var aksi = 'Add';
 		$.ajax({
-			url: '<?php echo site_url('barang/add'); ?>',
+			url: '<?php echo site_url('pasien/add'); ?>',
 			method: 'post',
 			data: {
 				aksi: aksi
@@ -94,7 +100,7 @@
 			success: function(data) {
 				$('#modalForm').modal("show");
 				$('#tampil_modal').html(data);
-				document.getElementById("judul").innerHTML = 'Tambah Data';
+				document.getElementById("judul").innerHTML = 'Tambah Data Pasien';
 
 			}
 		});
@@ -103,13 +109,13 @@
 	function edit_data(kode_barang)
 	{
 		$.ajax({
-			url: '<?php echo base_url('barang/edit'); ?>',
+			url: '<?php echo base_url('pasien/edit'); ?>',
 			method: 'post',
 			data: {kode_barang:kode_barang},
 			success:function(data){
 				$('#modalForm').modal("show");
 				$('#tampil_modal').html(data);
-				document.getElementById("judul").innerHTML='Edit Data Barang';  
+				document.getElementById("judul").innerHTML='Edit Data Pasien';  
 			}
 		});
 	}
@@ -117,7 +123,7 @@
 	function delete_data(kode_barang)
 	{
 		$.ajax({
-			url: "<?php echo site_url('barang/delete')?>",
+			url: "<?php echo site_url('pasien/delete')?>",
 			type: "POST",
 			data: {"kode_barang":kode_barang},
 			dataType:"JSON",

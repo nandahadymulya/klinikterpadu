@@ -1,17 +1,17 @@
 <form action="#" id="form" class="form-horizontal">
     <div class="form-body">
         <div class="form-group">
-            <label class="control-label col-md-12">Nama Barang</label>
+            <label class="control-label col-md-12">Nama Pasien</label>
             <div class="col-md-12">
-                <input name="nama_barang" id="nama_barang" placeholder="Isi Nama Barang ..." class="form-control" type="text">
+                <input name="nama_barang" id="nama_barang" placeholder="Isi Nama Pasien ..." class="form-control" type="text">
                 <span class="help-block"></span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-12">Satuan Barang</label>
+            <label class="control-label col-md-12">Satuan Pasien</label>
             <div class="col-md-12">
-                <input name="satuan_barang" id="satuan_barang" placeholder="Isi Satuan Barang ..." class="form-control" type="text">
+                <input name="satuan_barang" id="satuan_barang" placeholder="Isi Satuan Pasien ..." class="form-control" type="text">
                 <span class="help-block"></span>
             </div>
         </div>
@@ -33,7 +33,7 @@
         var data = $('#form').serialize();
             $.ajax({
                 type: 'POST',
-                url: "<?php echo site_url("barang/save"); ?>",
+                url: "<?php echo site_url("pasien/save"); ?>",
                 data: data,
                 dataType: 'json',
                 cache: false,
