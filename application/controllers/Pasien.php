@@ -39,7 +39,10 @@ class Pasien extends CI_Controller {
             $row[] = $no;
             $row[] = $rows->id_pasien;
             $row[] = $rows->nama;
-            $row[] = $rows->satuan;
+            $row[] = $rows->alamat;
+            $row[] = $rows->penyakit;
+            $row[] = $rows->jenis_rawat;
+            $row[] = $rows->status_bpjs;
             $row[] = $tombol;
  
             $data[] = $row;
@@ -71,7 +74,7 @@ class Pasien extends CI_Controller {
 	{
 		$id_pasien = $this->input->post('id_pasien');
         $data['detail'] = $this->model_pasien->get_data($id_pasien);
-        $this->load->view('barang/edit',$data);
+        $this->load->view('pasien/edit',$data);
 	}
 
 	public function update()

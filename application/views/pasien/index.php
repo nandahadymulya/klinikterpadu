@@ -26,13 +26,13 @@
 		<tfoot>
 			<tr>
 				<th width="2%">No</th>
-				<th>ID Pasien</th>
+				<th width="8%">ID Pasien</th>
 				<th>Nama</th>
-				<th>Alamat</th>
+				<th width="20%">Alamat</th>
 				<th>Penyakit</th>
-				<th>Jenis Rawat</th>
-				<th>Status BPJS</th>
-				<th>Action</th>
+				<th width="10%">Jenis Rawat</th>
+				<th width="10%">Status BPJS</th>
+				<th width="10%">Action</th>
 			</tr>
 		</tfoot>
 	</table>
