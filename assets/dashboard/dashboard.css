@@ -1,12 +1,12 @@
 body {
 	font-size: 0.875rem;
-	font-family: "Poppins", sans-serif !important;
+	font-family: "Nunito", sans-serif !important;
 }
 
 .feather {
 	width: 16px;
 	height: 16px;
-	vertical-align: text-bottom;
+	vertical-align: text-center;
 }
 
 /*
@@ -44,21 +44,22 @@ body {
 
 .sidebar .nav-link {
 	font-weight: 400;
-	color: #aaa;
+	color: #a7c4bc;
 }
 
 .sidebar .nav-link .feather {
 	margin-right: 4px;
-	color: #aaa;
+	color: #a7c4bc;
 }
 
 .sidebar .nav-link.active {
-	color: #007bff;
+	color: #2f5d62;
 }
 
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
 	color: inherit;
+	font-weight: bold !important;
 }
 
 .sidebar-heading {
@@ -70,6 +71,10 @@ body {
  * Navbar
  */
 
+.navbar {
+	background-color: #2f5d62 !important;
+}
+
 .navbar-brand {
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
@@ -80,7 +85,7 @@ body {
 
 .navbar .navbar-toggler {
 	padding: 0rem 0.25rem;
-	color: #185adb !important;
+	color: #2f5d62 !important;
 	top: 0.25rem;
 	right: 1.25rem;
 }
@@ -104,4 +109,16 @@ body {
 .navbar .signout {
 	font-weight: 400;
 	color: #fff !important;
+}
+
+.main .page-header .header {
+	color: #34656d;
+}
+
+.main .page-header .sub-header {
+	color: #aaa;
+}
+
+.card .card-header .table-name {
+	color: #206a5d;
 }

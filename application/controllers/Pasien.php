@@ -19,7 +19,7 @@ class Pasien extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'KlinikTerpadu &mdash; Halaman Pasien';
+		$data['title'] = 'Klinik Terpadu &mdash; Halaman Pasien';
 		$data['pageheader'] = 'Pasien';
 		$this->templates('pasien','index',$data);
 	}
@@ -31,8 +31,10 @@ class Pasien extends CI_Controller {
 		$no = $this->input->post('start');
 		foreach ($list as $rows) {
 
-			$tombol = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_data('."'".$rows->id_pasien."'".')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                      <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_data('."'".$rows->id_pasien."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+			$tombol = '
+				<a class="btn btn-sm bg-primary text-white my-1" href="javascript:void(0)" title="Edit" onclick="edit_data('."'".$rows->id_pasien."'".')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+				<a class="btn btn-sm bg-danger text-white my-1" href="javascript:void(0)" title="Hapus" onclick="delete_data('."'".$rows->id_pasien."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+				';
 
             $no++;
             $row = array();
@@ -40,7 +42,9 @@ class Pasien extends CI_Controller {
             $row[] = $rows->id_pasien;
             $row[] = $rows->nama;
             $row[] = $rows->alamat;
-            $row[] = $rows->penyakit;
+            $row[] = $rows->tempat_lahir;
+            $row[] = $rows->tanggal_lahir;
+            $row[] = $rows->nohp;
             $row[] = $rows->jenis_rawat;
             $row[] = $rows->status_bpjs;
             $row[] = $tombol;

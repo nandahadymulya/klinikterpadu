@@ -1,42 +1,54 @@
 <div class="main pt-4">
-	<h5 class="display-6"><?php echo $pageheader; ?></h5>
-	<p>Halaman ini memuat semua data <?= $pageheader; ?>.</p>
-
-	<div class="page-header">
-		<button type="button" name="add" id="add-form" data-toggle="modal" data-target="#modalForm" class="add btn btn-success">
-			<i class="fa fa-plus"></i>Tambah Data <?= $pageheader ?>
-		</button>
+	<div class="page-header mb-4">
+		<h3 class="header"><?php echo $pageheader; ?></h3>
+    	<p class="sub-header">Halaman ini memuat semua data <?= $pageheader; ?>.</p>
 	</div>
 	<hr/>
 
-	<table id="data_table" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
-		<thead>
-			<tr>
-				<th>No</th>
-				<th>ID Pasien</th>
-				<th>Nama</th>
-				<th>Alamat</th>
-				<th>Penyakit</th>
-				<th>Jenis Rawat</th>
-				<th>Status BPJS</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tbody></tbody>
-		<tfoot>
-			<tr>
-				<th width="2%">No</th>
-				<th width="8%">ID Pasien</th>
-				<th>Nama</th>
-				<th width="20%">Alamat</th>
-				<th>Penyakit</th>
-				<th width="10%">Jenis Rawat</th>
-				<th width="10%">Status BPJS</th>
-				<th width="10%">Action</th>
-			</tr>
-		</tfoot>
-	</table>
+	<button type="button" name="add" id="add-form" data-toggle="modal" data-target="#modalForm" class="add btn btn-sm fw-bold btn-success mb-3">
+		<i class="fa fa-plus"></i>Tambah Data <?= $pageheader; ?>
+	</button>
 
+	<div class="card shadow mb-4">
+    	<div class="card-header py-3">
+			<h6 class="m-0 fw-bold table-name">Tabel <?= $pageheader; ?> </h6>
+		</div>
+
+		<div class="card-body">
+			<table id="data_table" class="table table-responsive table-striped table-hover" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>ID Pasien</th>
+						<th>Nama</th>
+						<th>Alamat</th>
+						<th>Tempat Lahir</th>
+						<th>Tanggal Lahir</th>
+						<th>Nohp</th>
+						<th>Jenis Rawat</th>
+						<th>Status BPJS</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+				<tfoot>
+					<tr>
+						<th width="2%">No</th>
+						<th>ID Pasien</th>
+						<th>Nama</th>
+						<th>Alamat</th>
+						<th>Tempat Lahir</th>
+						<th>Tanggal Lahir</th>
+						<th>Nohp</th>
+						<th>Jenis Rawat</th>
+						<th>Status BPJS</th>
+						<th width="5%">Action</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+	
 	<!-- Modal -->
 	<div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -54,7 +66,6 @@
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <script type="text/javascript">

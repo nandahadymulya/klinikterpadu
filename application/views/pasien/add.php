@@ -17,9 +17,25 @@
         </div>
 
         <div class="form-group p-md-2">
-            <label class="control-label col-md-12">Penyakit Pasien</label>
+            <label class="control-label col-md-12">Tempat Lahir</label>
             <div class="col-md-12">
-                <input name="penyakit" id="penyakit" placeholder="Isi Penyakit Pasien ..." class="form-control" type="text">
+                <input name="tempat_lahir" id="tempat_lahir" placeholder="Isi Tempat Lahir Pasien ..." class="form-control" type="text">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group p-md-2">
+            <label class="control-label col-md-12">Tanggal Lahir</label>
+            <div class="col-md-12">
+                <input name="tanggal_lahir" id="tanggal_lahir" placeholder="Isi Tanggal Lahir Pasien ..." class="form-control" type="date">
+                <span class="help-block"></span>
+            </div>
+        </div>
+        
+        <div class="form-group p-md-2">
+            <label class="control-label col-md-12">Nohp</label>
+            <div class="col-md-12">
+                <input name="nohp" id="nohp" placeholder="Isi Nohp Pasien ..." class="form-control" type="text">
                 <span class="help-block"></span>
             </div>
         </div>
@@ -31,8 +47,6 @@
                     <option value="Rawat Inap">Rawat Inap</option>
                     <option value="Rawat Jalan">Rawat Jalan</option>
                 </select>
-                
-                <!-- <input name="jenis_rawat" id="jenis_rawat" placeholder="Isi Jenis Rawat Pasien ..." class="form-control" type="text"> -->
                 <span class="help-block"></span>
             </div>
         </div>
@@ -44,8 +58,6 @@
                     <option value="BPJS">Pasien BPJS</option>
                     <option value="Non BPJS">Pasien Non BPJS</option>
                 </select>
-
-                <!-- <input name="status_bpjs" id="status_bpjs" placeholder="Isi Status BPJS Pasien ..." class="form-control" type="text"> -->
                 <span class="help-block"></span>
             </div>
         </div>

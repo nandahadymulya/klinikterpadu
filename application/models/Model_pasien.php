@@ -1,8 +1,8 @@
 <?php
 class Model_pasien extends CI_Model
 {	
-    var $column_order_data = array(null,'id_pasien','nama','alamat','penyakit','jenis_rawat','status_bpjs', null);
-    var $column_search_data = array('id_pasien','nama','alamat','penyakit','jenis_rawat','status_bpjs');
+    var $column_order_data = array(null,'id_pasien','nama','alamat','tempat_lahir','tanggal_lahir','nohp','jenis_rawat','status_bpjs', null);
+    var $column_search_data = array('id_pasien','nama','alamat','tempat_lahir','tanggal_lahir','nohp','jenis_rawat','status_bpjs');
     var $order_data = array('id_pasien' => 'desc'); 
 
     public function __construct()
@@ -30,10 +30,22 @@ class Model_pasien extends CI_Model
             $data['error_string'][] = 'Alamat Pasien Wajib diisi.';
             $data['status'] = FALSE;
         }
-        if($this->input->post('penyakit') == '')
+        if($this->input->post('tempat_lahir') == '')
         {
-            $data['inputerror'][] = 'penyakit';
-            $data['error_string'][] = 'Penyakit Pasien Wajib diisi.';
+            $data['inputerror'][] = 'tempat_lahir';
+            $data['error_string'][] = 'Tempat Lahir Pasien Wajib diisi.';
+            $data['status'] = FALSE;
+        }
+        if($this->input->post('tanggal_lahir') == '')
+        {
+            $data['inputerror'][] = 'tanggal_lahir';
+            $data['error_string'][] = 'Tanggal Lahir Pasien Wajib diisi.';
+            $data['status'] = FALSE;
+        }
+        if($this->input->post('nohp') == '')
+        {
+            $data['inputerror'][] = 'nohp';
+            $data['error_string'][] = 'Nohp Pasien Wajib diisi.';
             $data['status'] = FALSE;
         }
         if($this->input->post('jenis_rawat') == '')
@@ -70,7 +82,9 @@ class Model_pasien extends CI_Model
         $this->mydb1->SELECT('id_pasien,
                                 nama,
                                 alamat,
-                                penyakit,
+                                tempat_lahir,
+                                tanggal_lahir,
+                                nohp,
                                 jenis_rawat,
                                 status_bpjs');
         $this->mydb1->from('tb_pasien');
@@ -110,7 +124,9 @@ class Model_pasien extends CI_Model
         $this->mydb1->SELECT('id_pasien,
                                 nama,
                                 alamat,
-                                penyakit,
+                                tempat_lahir,
+                                tanggal_lahir,
+                                nohp,
                                 jenis_rawat,
                                 status_bpjs');
         $this->mydb1->from('tb_pasien');
@@ -142,7 +158,9 @@ class Model_pasien extends CI_Model
 
         $nama           = $this->input->post('nama');
         $alamat         = $this->input->post('alamat');
-        $penyakit       = $this->input->post('penyakit');
+        $tempat_lahir   = $this->input->post('tempat_lahir');
+        $tanggal_lahir  = $this->input->post('tanggal_lahir');
+        $nohp           = $this->input->post('nohp');
         $jenis_rawat    = $this->input->post('jenis_rawat');
         $status_bpjs    = $this->input->post('status_bpjs');
 
@@ -150,7 +168,9 @@ class Model_pasien extends CI_Model
         $this->mydb1->set('id_pasien',$idPasien);
         $this->mydb1->set('nama',$nama);
         $this->mydb1->set('alamat',$alamat);
-        $this->mydb1->set('penyakit',$penyakit);
+        $this->mydb1->set('tempat_lahir',$tempat_lahir);
+        $this->mydb1->set('tanggal_lahir',$tanggal_lahir);
+        $this->mydb1->set('nohp',$nohp);
         $this->mydb1->set('jenis_rawat',$jenis_rawat);
         $this->mydb1->set('status_bpjs',$status_bpjs);
         $this->mydb1->insert('tb_pasien');
@@ -174,7 +194,9 @@ class Model_pasien extends CI_Model
         $this->mydb1->SELECT('id_pasien,
                                 nama,
                                 alamat,
-                                penyakit,
+                                tempat_lahir,
+                                tanggal_lahir,
+                                nohp,
                                 jenis_rawat,
                                 status_bpjs');
         $this->mydb1->FROM('tb_pasien');
@@ -188,14 +210,18 @@ class Model_pasien extends CI_Model
         $id_pasien      = $this->input->post('id_pasien');
         $nama           = $this->input->post('nama');
         $alamat         = $this->input->post('alamat');
-        $penyakit       = $this->input->post('penyakit');
+        $tempat_lahir   = $this->input->post('tempat_lahir');
+        $tanggal_lahir  = $this->input->post('tanggal_lahir');
+        $nohp           = $this->input->post('nohp');
         $jenis_rawat    = $this->input->post('jenis_rawat');
         $status_bpjs    = $this->input->post('status_bpjs');
 
         $this->mydb1->trans_start();
         $this->mydb1->set('nama',$nama);
         $this->mydb1->set('alamat',$alamat);
-        $this->mydb1->set('penyakit',$penyakit);
+        $this->mydb1->set('tempat_lahir',$tempat_lahir);
+        $this->mydb1->set('tanggal_lahir',$tanggal_lahir);
+        $this->mydb1->set('nohp',$nohp);
         $this->mydb1->set('jenis_rawat',$jenis_rawat);
         $this->mydb1->set('status_bpjs',$status_bpjs);
         $this->mydb1->WHERE('id_pasien',$id_pasien);
@@ -236,6 +262,5 @@ class Model_pasien extends CI_Model
             return TRUE;
         }
     }
-
-
+    
 }

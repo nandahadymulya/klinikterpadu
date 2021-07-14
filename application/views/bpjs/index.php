@@ -1,38 +1,50 @@
 <div class="main pt-4">
-	<h5 class="display-6"><?php echo $pageheader; ?></h5>
-	 <p>Halaman ini memuat semua data pemasok atau supplier.</p>
-
-	<div class="page-header">
-		<button type="button" name="add" id="add-form" data-toggle="modal" data-target="#modalForm" class="add btn btn-success text-white">
-			<i class="fa fa-plus"></i>Tambah Supplier
-		</button>
+	<div class="page-header mb-4">
+		<h3 class="header"><?php echo $pageheader; ?></h3>
+    	<p class="sub-header">Halaman ini memuat semua data <?= $pageheader; ?>.</p>
 	</div>
 	<hr/>
 
-	<table id="data_table" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
-		<thead>
-			<tr>
-				<th>No</th>
-				<th>ID Supplier</th>
-				<th>Nama</th>
-				<th>Alamat</th>
-				<th>Telp</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tbody></tbody>
-		<tfoot>
-			<tr>
-				<th width="2%">No</th>
-				<th>ID Supplier</th>
-				<th>Nama</th>
-				<th>Alamat</th>
-				<th>Telp</th>
-				<th>Action</th>
-			</tr>
-		</tfoot>
-	</table>
+	<button type="button" name="add" id="add-form" data-toggle="modal" data-target="#modalForm" class="add btn btn-sm fw-bold btn-success mb-3">
+		<i class="fa fa-plus"></i>Tambah Data <?= $pageheader; ?>
+	</button>
 
+	<div class="card shadow mb-4">
+    	<div class="card-header py-3">
+			<h6 class="m-0 fw-bold table-name">Tabel <?= $pageheader; ?> </h6>
+		</div>
+
+		<div class="card-body">
+			<table id="data_table" class="table table-responsive table-striped table-hover" cellspacing="0" width="100%">
+				<thead class="text-center">
+					<tr>
+						<th>No</th>
+						<th>ID Pasien</th>
+						<th>Nama</th>
+						<th>Alamat</th>
+						<th>Penyakit</th>
+						<th>Jenis Rawat</th>
+						<th>Status BPJS</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+				<tfoot>
+					<tr>
+						<th width="2%">No</th>
+						<th width="8%">ID Pasien</th>
+						<th>Nama</th>
+						<th width="20%">Alamat</th>
+						<th>Penyakit</th>
+						<th width="10%">Jenis Rawat</th>
+						<th width="10%">Status BPJS</th>
+						<th width="15%">Action</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+	
 	<!-- Modal -->
 	<div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -50,7 +62,6 @@
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <script type="text/javascript">
@@ -71,7 +82,7 @@
 				"order": [],  
 				// Load data for the table's content from an Ajax source
 				"ajax": {
-					"url": "<?php echo site_url('supplier/ajax') ?>",
+					"url": "<?php echo site_url('pasien/ajax') ?>",
 					"type": "POST",
 					"data": function(data) {
 						null
@@ -88,7 +99,7 @@
 	$('.add').click(function() {
 		var aksi = 'Add';
 		$.ajax({
-			url: '<?php echo site_url('supplier/add'); ?>',
+			url: '<?php echo site_url('pasien/add'); ?>',
 			method: 'post',
 			data: {
 				aksi: aksi
@@ -96,32 +107,32 @@
 			success: function(data) {
 				$('#modalForm').modal("show");
 				$('#tampil_modal').html(data);
-				document.getElementById("judul").innerHTML = 'Tambah Data';
+				document.getElementById("judul").innerHTML = 'Tambah Data Pasien';
 
 			}
 		});
 	});
 
-	function edit_data(id_supplier)
+	function edit_data(id_pasien)
 	{
 		$.ajax({
-			url: '<?php echo base_url('supplier/edit'); ?>',
+			url: '<?php echo base_url('pasien/edit'); ?>',
 			method: 'post',
-			data: {id_supplier:id_supplier},
+			data: {id_pasien:id_pasien},
 			success:function(data){
 				$('#modalForm').modal("show");
 				$('#tampil_modal').html(data);
-				document.getElementById("judul").innerHTML='Edit Data Supplier';  
+				document.getElementById("judul").innerHTML='Edit Data Pasien';  
 			}
 		});
 	}
 
-	function delete_data(id_supplier)
+	function delete_data(id_pasien)
 	{
 		$.ajax({
-			url: "<?php echo site_url('supplier/delete')?>",
+			url: "<?php echo site_url('pasien/delete')?>",
 			type: "POST",
-			data: {"id_supplier":id_supplier},
+			data: {"id_pasien":id_pasien},
 			dataType:"JSON",
 			error: function() {
 				alert('Terjadi Kesalahan, silahkan ulangi kembali');
